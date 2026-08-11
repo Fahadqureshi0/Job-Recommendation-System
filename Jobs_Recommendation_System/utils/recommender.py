@@ -10,7 +10,7 @@ from pathlib import path
 # TF-IDF Vectorization Filedef load_models():
 
     # Get the Jobs_Recommendation_System directory
-    BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
     # Get models directory
     MODEL_DIR = BASE_DIR / "models"
