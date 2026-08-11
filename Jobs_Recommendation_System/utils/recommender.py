@@ -1,18 +1,12 @@
-# Importing Pickle
+import pickle
+from pathlib import Path
 
-import pickle # Saving model files______!
-from sklearn.metrics.pairwise import cosine_similarity # Cosine Similarity_____!
-from pathlib import path
+from sklearn.metrics.pairwise import cosine_similarity
 
 
-# Loading Models______!
+def load_models():
 
-# TF-IDF Vectorization Filedef load_models():
-
-    # Get the Jobs_Recommendation_System directory
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-    # Get models directory
+    BASE_DIR = Path(__file__).resolve().parent.parent
     MODEL_DIR = BASE_DIR / "models"
 
     with open(MODEL_DIR / "tfidf.pkl", "rb") as file:
@@ -27,10 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
     return tfidf, job_vectors, jobs_dataset
 
 
-
-# Recommendation Function
-
-def recommend_jobs(resume, tfidf, job_vectors, jobs_dataset):
+def recommend_jobs(
+    resume,
+    tfidf,
+    job_vectors,
+    jobs_dataset
+):
 
     resume_vector = tfidf.transform([resume])
 
@@ -41,7 +37,11 @@ def recommend_jobs(resume, tfidf, job_vectors, jobs_dataset):
 
     job_scores = similarity_scores[0]
 
-    sorted_jobs = sorted(enumerate(job_scores),key=lambda x: x[1],reverse=True)
+    sorted_jobs = sorted(
+        enumerate(job_scores),
+        key=lambda x: x[1],
+        reverse=True
+    )
 
     recommendations = []
 
