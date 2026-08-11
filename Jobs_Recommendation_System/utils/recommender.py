@@ -12,13 +12,13 @@ def load_models():
     print("MODEL DIRECTORY:", MODEL_DIR)
     print("FILES FOUND:", list(MODEL_DIR.iterdir()))
 
-    with open(MODEL_DIR / "tfidf.pkl", "rb") as file:
+    with open(models/"tfidf.pkl", "rb") as file:
         tfidf = pickle.load(file)
 
-    with open(MODEL_DIR / "job_text_vectors.pkl", "rb") as file:
+    with open(models/"job_text_vectors.pkl", "rb") as file:
         job_vectors = pickle.load(file)
 
-    with open(MODEL_DIR / "job_dataset.pkl", "rb") as file:
+    with open(models/"job_dataset.pkl", "rb") as file:
         jobs_dataset = pickle.load(file)
 
     return tfidf, job_vectors, jobs_dataset
