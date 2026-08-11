@@ -9,17 +9,17 @@ from sklearn.metrics.pairwise import cosine_similarity # Cosine Similarity_____!
 # TF-IDF Vectorization File
 
 def load_models():
-    with open("models/tfidf.pkl", "rb") as file:
+    with open("Jobs_Recommendation_System/models/tfidf.pkl", "rb") as file:
         tfidf = pickle.load(file)
 
 # Job Vectors File
 
-    with open("models/job_text_vectors.pkl", "rb") as file:
+    with open("Jobs_Recommendation_System/models/job_text_vectors.pkl", "rb") as file:
         job_vectors = pickle.load(file)
 
 
 # job dataset file
-    with open("models/jobs_dataset.pkl", "rb") as file:
+    with open("Jobs_Recommendation_System/models/jobs_dataset.pkl", "rb") as file:
             job_dataset = pickle.load(file)
 
 
