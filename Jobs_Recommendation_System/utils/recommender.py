@@ -2,28 +2,29 @@
 
 import pickle # Saving model files______!
 from sklearn.metrics.pairwise import cosine_similarity # Cosine Similarity_____!
+from pathlib import path
 
 
 # Loading Models______!
 
-# TF-IDF Vectorization File
+# TF-IDF Vectorization Filedef load_models():
 
-def load_models():
-    with open("models/tfidf.pkl", "rb") as file:
+    # Get the Jobs_Recommendation_System directory
+    BASE_DIR = Path(__file__).resolve().parent.parent
+
+    # Get models directory
+    MODEL_DIR = BASE_DIR / "models"
+
+    with open(MODEL_DIR / "tfidf.pkl", "rb") as file:
         tfidf = pickle.load(file)
 
-# Job Vectors File
-
-    with open("models/job_text_vectors.pkl", "rb") as file:
+    with open(MODEL_DIR / "job_text_vectors.pkl", "rb") as file:
         job_vectors = pickle.load(file)
 
+    with open(MODEL_DIR / "job_dataset.pkl", "rb") as file:
+        jobs_dataset = pickle.load(file)
 
-# job dataset file
-    with open("models/jobs_dataset.pkl", "rb") as file:
-            job_dataset = pickle.load(file)
-
-
-    return tfidf, job_vectors, job_dataset
+    return tfidf, job_vectors, jobs_dataset
 
 
 
