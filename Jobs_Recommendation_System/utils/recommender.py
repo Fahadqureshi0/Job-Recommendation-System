@@ -9,6 +9,9 @@ def load_models():
     BASE_DIR = Path(__file__).resolve().parent.parent
     MODEL_DIR = BASE_DIR / "models"
 
+    print("MODEL DIRECTORY:", MODEL_DIR)
+    print("FILES FOUND:", list(MODEL_DIR.iterdir()))
+
     with open(MODEL_DIR / "tfidf.pkl", "rb") as file:
         tfidf = pickle.load(file)
 
